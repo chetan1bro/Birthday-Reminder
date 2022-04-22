@@ -10,7 +10,7 @@ app.use(express.urlencoded())
 app.use(cors())
 
 //DB config mongodb+srv://chetan:Chetan%40123%23@cluster0.ikomb.mongodb.net/ReminderApp
-mongoose.connect('mongodb+srv://chetan:Chetan%40123%23@cluster0.ikomb.mongodb.net/ReminderApp', {
+mongoose.connect(MONGODB_URL, {
     useNewUrlParser: true, 
     useUnifiedTopology: true
 }, () => console.log("DB connected"))
@@ -105,4 +105,4 @@ app.post("/deleteReminder", (req, res) => {
     })
 })
 
-app.listen(9000, () => console.log("Be started"))
+app.listen(process.env.PORT || 9000, () => console.log("Be started"))
